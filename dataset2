@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Metadados do Dataset - PSQA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            width: 30%;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Metadados do Dataset - PSQA (schema.org)</h2>
+
+    <table>
+        <tr>
+            <th>Propriedade</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>Dataset de Métricas para Previsão de Resultados de PSQA em Radioterapia</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>Este conjunto de dados contém 60 métricas quantitativas extraídas de uma coorte de planos clínicos anonimizados de radioterapia (IMRT/VMAT). As métricas incluem características da dinâmica do colimador (MLC), da distribuição de dose e índices de complexidade. O objetivo do dataset é treinar e validar modelos de machine learning para prever os resultados do controle de qualidade específico do paciente (PSQA).</td>
+        </tr>
+        <tr>
+            <td>url</td>
+            <td>https://doi.org/10.48321/D1C45530AD</td>
+        </tr>
+        <tr>
+            <td>creator</td>
+            <td>Nathália L. A. Alves, Mário Olímpio de Menezes</td>
+        </tr>
+         <tr>
+            <td>license</td>
+            <td>https://creativecommons.org/licenses/by/4.0/</td>
+        </tr>
+         <tr>
+            <td>keywords</td>
+            <td>Radioterapia, Controle de Qualidade, PSQA, Machine Learning, Física Médica, DICOM</td>
+        </tr>
+        <tr>
+            <td>distribution</td>
+            <td>encodingFormat: CSV</td>
+        </tr>
+         <tr>
+            <td>variableMeasured</td>
+            <td>Modulation Complexity Score (MCS), Average Leaf Speed, PSQA Result</td>
+        </tr>
+    </table>
+
+</body>
+</html>

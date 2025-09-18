@@ -1,0 +1,59 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "Dataset de Métricas para Previsão de Resultados de PSQA em Radioterapia",
+  "description": "Este conjunto de dados contém 60 métricas quantitativas extraídas de uma coorte de planos clínicos anonimizados de radioterapia (IMRT/VMAT). As métricas incluem características da dinâmica do colimador (MLC), da distribuição de dose e índices de complexidade. O objetivo do dataset é treinar e validar modelos de machine learning para prever os resultados do controle de qualidade específico do paciente (PSQA).",
+  "url": "https://doi.org/10.48321/D1C45530AD",
+  "sameAs": "https://github.com/seu-usuario/psqa-prediction-project",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Nathália L. A. Alves",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Instituto de Pesquisas Energéticas e Nucleares (IPEN-CNEN)"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Mário Olímpio de Menezes",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Instituto de Pesquisas Energéticas e Nucleares (IPEN-CNEN)"
+      }
+    }
+  ],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "keywords": [
+    "Radioterapia",
+    "Controle de Qualidade",
+    "PSQA",
+    "Machine Learning",
+    "Física Médica",
+    "DICOM"
+  ],
+  "isAccessibleForFree": true,
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "CSV",
+    "contentUrl": "https://caminho-para-seu-repositorio/psqa_features_dataset.csv"
+  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Modulation Complexity Score (MCS)",
+      "description": "Um índice que quantifica a complexidade do plano de tratamento."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Average Leaf Speed",
+      "description": "A velocidade média das lâminas do colimador multi-lâminas (MLC) durante a entrega do tratamento.",
+      "unitText": "cm/s"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PSQA Result",
+      "description": "O resultado binário do controle de qualidade específico do paciente (0 = Aprovado, 1 = Reprovado)."
+    }
+  ]
+}
