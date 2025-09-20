@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Plano de Gestão de Dados e Canvas do Experimento - Nathália L. A. Alves</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #3498db;
+            margin-top: 30px;
+        }
+        p, li {
+            font-size: 16px;
+            text-align: justify;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        strong {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Plano de Gestão de Dados e Canvas do Experimento</h1>
+        <p><strong>Autora:</strong> Nathália L. A. Alves</p>
+        <p><strong>Projeto:</strong> Machine Learning in PSQA: Performance of a Random Forest Model on Radiotherapy Metrics</p>
+
+        <hr>
+
+        <h2>Resumo (Abstract) do Plano de Gestão de Dados</h2>
+        <p>
+            Este Plano de Gestão de Dados (PGD) descreve os procedimentos para o gerenciamento do ciclo de vida dos dados utilizados no estudo sobre a aplicação de algoritmos de aprendizado de máquina (ML) para prever os resultados do controle de qualidade específico do paciente (PSQA) em radioterapia (IMRT e VMAT). O projeto analisa uma coorte de planos de radioterapia clínicos e anonimizados, abrangendo diversos locais de tratamento (próstata, cabeça e pescoço, pelve, SNC e SRS). A partir de cada plano DICOM-RT, são extraídas 60 features quantitativas que englobam a dinâmica do colimador multi-lâminas (MLC), características da distribuição de dose e índices de complexidade. Adicionalmente, para lidar com o desbalanceamento de classes, são gerados dados sintéticos, incluindo um conjunto de planos "perturbados" e amostras criadas pela técnica SMOTE. Este PGD detalha como esses dados complexos e heterogêneos serão coletados, documentados, armazenados, protegidos e preparados para compartilhamento, garantindo a reprodutibilidade e o valor a longo prazo da pesquisa.
+        </p>
+
+        <h2>Que dados serão coletados ou criados?</h2>
+        <p>
+            O projeto utilizará dados primários coletados de fontes clínicas e gerará dados secundários e sintéticos para o treinamento e validação de um modelo de aprendizado de máquina.
+            <ul>
+                <li><strong>Dados Coletados (Primários):</strong> A base de dados primária consiste em uma coorte de 133 planos de radioterapia clínicos e anonimizados. Esses planos abrangem uma variedade de locais de tratamento. Os dados brutos são provenientes de arquivos no padrão DICOM-RT (RTPLAN, RTDOSE, RTIMAGE).</li>
+                <li><strong>Dados Criados/Gerados (Secundários):</strong> Incluem 60 métricas quantitativas (features) extraídas de cada plano, um dataset estruturado, dados sintéticos para balanceamento (planos "perturbados" e amostras SMOTE), o modelo Random Forest treinado, e logs de resultados.</li>
+            </ul>
+        </p>
+
+        <h2>Como os dados serão coletados ou criados?</h2>
+        <p>
+            A coleta e criação de dados seguirão um pipeline computacional em Python, utilizando bibliotecas como `pydicom` para extração de informações dos arquivos DICOM e `pandas` para organização. Scripts modulares processarão cada tipo de arquivo (RTPLAN, RTDOSE, RTIMAGE). Dados sintéticos serão gerados aplicando perturbações controladas aos planos originais e utilizando a técnica SMOTE para balancear as classes. Todo o processo será otimizado com `multiprocessing` e rastreado por um sistema de `logging` para garantir a reprodutibilidade.
+        </p>
+
+        <h2>Que documentação e metadados irão acompanhar os dados?</h2>
+        <p>
+            Os dados serão acompanhados por:
+            <ul>
+                <li><strong>Metadados Incorporados DICOM-RT:</strong> Informações ricas e padronizadas contidas nos próprios arquivos.</li>
+                <li><strong>Dicionário de Dados das Features:</strong> Documentação completa descrevendo cada uma das 60 features quantitativas extraídas.</li>
+                <li><strong>Documentação do Processo (Logs):</strong> Logs que capturam o progresso do processamento, erros e diagnósticos, garantindo rastreabilidade.</li>
+                <li><strong>Código-Fonte Comentado:</strong> Scripts em Python comentados para explicar a lógica e o fluxo de trabalho.</li>
+                <li><strong>Artigo Científico:</strong> A própria publicação servirá como documentação central da metodologia.</li>
+            </ul>
+        </p>
+
+        <h2>Como serão tratadas as questões éticas, legais e de propriedade intelectual?</h2>
+        <p>
+            A principal medida ética foi a <strong>completa anonimização dos dados</strong>, removendo todas as informações de identificação pessoal para proteger a confidencialidade dos pacientes. A propriedade intelectual é regida pela parceria entre as instituições envolvidas (IPEN, RTCON, Hospital IBCC), com os direitos autorais da publicação atribuídos aos autores. As partes declaram não haver conflito de interesses.
+        </p>
+
+        <h2>Como os dados serão armazenados, protegidos e quem será o responsável?</h2>
+        <p>
+            Os dados serão armazenados em um servidor seguro (NAS) com acesso restrito, seguindo a regra de backup "3-2-1" (três cópias, duas mídias, uma off-site). A segurança será garantida por controle de acesso baseado em função, autenticação forte e criptografia dos dados em repouso e em trânsito. A responsabilidade final pela gestão dos dados é da <strong>Pesquisadora Principal (Nathália L. A. Alves)</strong> e seu orientador, com o gerenciamento diário realizado pela equipe de pesquisa.
+        </p>
+
+        <h2>Como os dados serão compartilhados e preservados a longo prazo?</h2>
+        <p>
+            O compartilhamento seguirá o princípio "tão aberto quanto possível, tão fechado quanto necessário".
+            <ul>
+                <li><strong>Compartilhamento Público:</strong> O dataset final de features, o código-fonte e a documentação serão depositados em um repositório confiável (e.g., Zenodo), recebendo um DOI e uma licença aberta (CC-BY 4.0).</li>
+                <li><strong>Acesso Controlado:</strong> Os arquivos DICOM-RT brutos não serão públicos devido à sua natureza sensível. O acesso poderá ser concedido a pesquisadores mediante um Acordo de Transferência de Dados (DTA).</li>
+                <li><strong>Preservação:</strong> O conjunto de dados público será mantido por um período mínimo de 10 anos, garantindo sua acessibilidade e reusabilidade futuras.</li>
+            </ul>
+        </p>
+
+        <hr>
+
+        <h1>Canvas do Experimento de Data Science</h1>
+        <p><strong>Experimento:</strong> Previsão de Resultados de PSQA com Machine Learning</p>
+
+        <h2>1. Objetivo e Proposta de Valor</h2>
+        <p>Responder à pergunta: "É possível prever se um plano de radioterapia irá falhar no controle de qualidade (PSQA) antes de sua verificação física?". O sucesso permitirá otimizar o fluxo de trabalho clínico, economizando tempo e recursos ao identificar proativamente os planos problemáticos.</p>
+
+        <h2>2. Dados e Preparação</h2>
+        <p>As fontes de dados são os arquivos DICOM RTPLAN e RTDOSE, juntamente com seus resultados históricos de PSQA. Através de engenharia de features, 60 métricas quantitativas são extraídas. A técnica SMOTE é utilizada para corrigir o desbalanceamento de classes.</p>
+
+        <h2>3. Modelagem e Validação</h2>
+        <p>Um modelo de classificação <strong>Random Forest</strong> é treinado para mapear as features do plano ao seu resultado de QA. A robustez do modelo é assegurada pela técnica de <strong>validação cruzada (cross-validation)</strong>.</p>
+
+        <h2>4. Avaliação e Próximos Passos</h2>
+        <p>O desempenho é medido com métricas como Acurácia, Sensibilidade, Especificidade e F1-Score. Os entregáveis são o modelo treinado, o código-fonte e o dataset. Como próximo passo, planeja-se desenvolver um <strong>software</strong> que integre o modelo, servindo como uma ferramenta de auxílio para os físicos.</p>
+
+    </div>
+
+</body>
+</html>
